@@ -1,4 +1,4 @@
-<div class="row">
+{{!-- <div class="row">
     <div class="col-auto">
         <h2>Welcome, {{name}}!</h2>
     </div>
@@ -42,4 +42,24 @@
     {{/if}}
 </div>
 
-<script src="./js/profile.js"></script>
+<script src="./js/profile.js"></script> --}}
+
+<div class="card">
+    <h3 class="card-header">Sign Up</h3>
+    <form id="signup-form" class="card-body">
+
+        <label for="username-signup" class="form-label">Username</label>
+        <input id="username-signup" type="text" class="form-input" />
+
+
+
+
+        <label class="form-label" for="password-signup">Password</label>
+        <input id="password-signup" type="password" class="form-input" />
+
+        <button type="submit" class="btn">Signup!</button>
+        <a class="login-link" href="/login">Log In</a>
+    </form>
+</div>
+
+<script src="/javascript/signup.js"></script>

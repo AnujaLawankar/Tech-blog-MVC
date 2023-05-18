@@ -1,0 +1,13 @@
+{{#if blogs.length}}
+<section>
+    <h2>Your Blogs</h2>
+    {{#each blogs as |blog|}}
+    {{> dashboard-bloginfo blog}}
+    {{/each}}
+
+</section>
+{{/if}}
+
+<button type="submit" class="btn"><a class="link" href="/dashboard/new">New Blog</a></button>
+
+<script src="/javascript/add-blog.js"></script>

@@ -1,14 +1,17 @@
 [
     {
-        "name": "What is MYSQL?",
-        "description": "MySQL is an open-source relational database management system. Its name is a combination of 'My',\n the name of co-founder Michael Widenius's daughter My,\n and 'SQL', the acronym for Structured Query Language"
+        "title": "What is MYSQL?",
+        "description": "MySQL is an open-source relational database management system. Its name is a combination of 'My',\n the name of co-founder Michael Widenius's daughter My,\n and 'SQL', the acronym for Structured Query Language",
+        "user_id": 1
     },
     {
-        "name": "What is Express.js?",
-        "description": "Express is the most popular Node web framework, \n and is the underlying library for a number of other popular Node web frameworks."
+        "title": "What is Express.js?",
+        "description": "Express is the most popular Node web framework, \n and is the underlying library for a number of other popular Node web frameworks.",
+        "user_id": 2
     },
     {
-        "name": "What is handlebars?",
-        "description": "Handlebars is a simple templating language.\n It uses a template and an input object to generate HTML or other text formats."
+        "title": "What is handlebars?",
+        "description": "Handlebars is a simple templating language.\n It uses a template and an input object to generate HTML or other text formats.",
+        "user_id": 3
     }
 ]

@@ -1,0 +1,26 @@
+{{!-- <div class="text-center">
+    <h2>{{name}}</h2>
+    {{!-- <p>{{{get_emoji}}}</p> --}}
+    {{!-- <p>{{description}}</p>
+    <p>Created by {{user.name}} on {{format_date date_created}}</p>
+
+    <p>
+        <button class="btn btn-primary">Blog</button>
+    </p>
+</div> --}}
+
+<div class="card">
+    <h3 class="card-header">Create New Blog</h3>
+    <form class="card-body new-blog-form" id="new-blog-form">
+        <label for="blog-title" class="form-label">Title</label>
+        <input type="text" id="blog-title" name="blog-title" class="form-input" />
+
+
+        <label class="form-label" for="description">Content</label>
+        <input id="description" name="description" class="form-input" />
+
+        <button type="submit" class="btn">Create</button>
+    </form>
+</div>
+
+<script src="/javascript/add-blog.js"></script>

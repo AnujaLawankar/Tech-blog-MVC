@@ -16,6 +16,10 @@ router.get('/', (req, res) => {
                 model: User,
                 attributes: ['username']
             }
+        },
+        {
+            model: User,
+            attributes: ['username']
         }
         ]
     })
@@ -72,6 +76,10 @@ router.get('/blog/:id', (req, res) => {
                 model: User,
                 attributes: ['username']
             }
+        },
+        {
+            model: User,
+            attributes: ['username']
         }
         ]
     })
@@ -109,6 +117,10 @@ router.get('/blogs-comments', (req, res) => {
                 model: User,
                 attributes: ['username']
             }
+        },
+        {
+            model: User,
+            attributes: ['username']
         }
         ]
     })

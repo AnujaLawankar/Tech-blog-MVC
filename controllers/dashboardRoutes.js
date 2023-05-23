@@ -38,24 +38,24 @@ router.get('/', withAuth, (req, res) => {
 });
 
 
-// router.get('/', withAuth, async (req, res) => {
-//     try {
-//         const blogData = await Blog.findAll({
-//             where: {
-//                 userId: req.session.userId,
-//             },
-//         });
+router.get('/', withAuth, async (req, res) => {
+    try {
+        const blogData = await Blog.findAll({
+            where: {
+                userId: req.session.userId,
+            },
+        });
 
-//         const blogs = blogData.map((blog) => blog.get({ plain: true }));
+        const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
-//         res.render('all-posts-admin', {
-//             layout: 'dashboard',
-//             blogs,
-//         });
-//     } catch (err) {
-//         res.redirect('login');
-//     }
-// });
+        res.render('all-posts-admin', {
+            layout: 'dashboard',
+            blogs,
+        });
+    } catch (err) {
+        res.redirect('login');
+    }
+});
 
 router.get('/edit/:id', withAuth, (req, res) => {
     Blog.findOne({
@@ -94,11 +94,46 @@ router.get('/edit/:id', withAuth, (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-})
+});
+
 router.get('/new', (req, res) => {
     res.render('new-blog');
+
+
+
 });
 
 
+// router.post('/new', withAuth, (req, res) => {
+//     res.render('new-blog');
+//     Blog.create({
+//         title: req.body.title,
+//         description: req.body.description,
+//         user_id: req.session.user_id,
+//         created_at: req.session.created_at
+//     })
+//         .then(dbBlogData => res.json(dbBlogData))
+//         .catch(err => {
+//             console.log(err);
+//             res.status(500).json(err);
+//         });
+
+// });
+
+router.post('/new', withAuth, (req, res) => {
+    Blog.create({
+        title: req.body.title,
+        description: req.body.description,
+        user_id: req.session.user_id,
+    })
+        .then(dbBlogData => {
+            // Optionally, you can redirect to a different page after successful creation
+            res.redirect('/blogs');
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
 module.exports = router;

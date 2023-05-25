@@ -29,7 +29,7 @@ router.get('/', withAuth, (req, res) => {
     })
         .then(dbBlogData => {
             const blogs = dbBlogData.map(blog => blog.get({ plain: true }));
-            res.render('dashboard', { blogs, loggedIn: true });
+            res.render('homepage', { layout: 'main', blogs, loggedIn: true });
         })
         .catch(err => {
             console.log(err);
@@ -104,31 +104,18 @@ router.get('/new', (req, res) => {
 });
 
 
-// router.post('/new', withAuth, (req, res) => {
-//     res.render('new-blog');
-//     Blog.create({
-//         title: req.body.title,
-//         description: req.body.description,
-//         user_id: req.session.user_id,
-//         created_at: req.session.created_at
-//     })
-//         .then(dbBlogData => res.json(dbBlogData))
-//         .catch(err => {
-//             console.log(err);
-//             res.status(500).json(err);
-//         });
-
-// });
 
 router.post('/new', withAuth, (req, res) => {
     Blog.create({
         title: req.body.title,
         description: req.body.description,
+        created_at: req.body.created_at,
         user_id: req.session.user_id,
     })
         .then(dbBlogData => {
             // Optionally, you can redirect to a different page after successful creation
             res.redirect('/blogs');
+            alert("Blog is created")
         })
         .catch(err => {
             console.log(err);

@@ -138,6 +138,43 @@ router.get('/delete/:id', withAuth, (req, res) => {
         });
 });
 
+
+router.put('/edit/:id', withAuth, (req, res) => {
+    Blog.update({
+        title: req.body.title,
+        description: req.body.description
+    }, {
+        where: {
+            id: req.params.id
+        }
+    }).then(dbBlogData => {
+        if (!dbBlogData) {
+            res.status(404).json({ message: 'No blog found with this id' });
+            return;
+        }
+        res.json(dbBlogData);
+    })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+router.delete('/delete/:id', withAuth, (req, res) => {
+    Blog.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(dbBlogData => {
+        if (!dbBlogData) {
+            res.status(404).json({ message: 'No blog found with this id' });
+            return;
+        }
+        res.json(dbBlogData);
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 router.get('/new', (req, res) => {
     res.render('new-blog');
 

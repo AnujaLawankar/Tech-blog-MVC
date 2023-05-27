@@ -38,63 +38,63 @@ router.get('/', withAuth, (req, res) => {
 });
 
 
-router.get('/', withAuth, async (req, res) => {
-    try {
-        const blogData = await Blog.findAll({
-            where: {
-                userId: req.session.userId,
-            },
-        });
+// router.get('/', withAuth, async (req, res) => {
+//     try {
+//         const blogData = await Blog.findAll({
+//             where: {
+//                 userId: req.session.userId,
+//             },
+//         });
 
-        const blogs = blogData.map((blog) => blog.get({ plain: true }));
+//         const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
-        res.render('all-posts-admin', {
-            layout: 'dashboard',
-            blogs,
-        });
-    } catch (err) {
-        res.redirect('login');
-    }
-});
+//         res.render('all-posts-admin', {
+//             layout: 'dashboard',
+//             blogs,
+//         });
+//     } catch (err) {
+//         res.redirect('login');
+//     }
+// });
 
-router.get('/edit/:id', withAuth, (req, res) => {
-    Blog.findOne({
-        where: {
-            id: req.params.id
-        },
-        attributes: ['id',
-            'title',
-            'description',
-            'created_at'
-        ],
-        include: [{
-            model: User,
-            attributes: ['username']
-        },
-        {
-            model: Comment,
-            attributes: ['id', 'comment', 'blog_id', 'user_id'],
-            include: {
-                model: User,
-                attributes: ['username']
-            }
-        }
-        ]
-    })
-        .then(dbBlogData => {
-            if (!dbBlogData) {
-                res.status(404).json({ message: 'No blog found with this id' });
-                return;
-            }
+// router.get('/edit/:id', withAuth, (req, res) => {
+//     Blog.findOne({
+//         where: {
+//             id: req.params.id
+//         },
+//         attributes: ['id',
+//             'title',
+//             'description',
+//             'created_at'
+//         ],
+//         include: [{
+//             model: User,
+//             attributes: ['username']
+//         },
+//         {
+//             model: Comment,
+//             attributes: ['id', 'comment', 'blog_id', 'user_id'],
+//             include: {
+//                 model: User,
+//                 attributes: ['username']
+//             }
+//         }
+//         ]
+//     })
+//         .then(dbBlogData => {
+//             if (!dbBlogData) {
+//                 res.status(404).json({ message: 'No blog found with this id' });
+//                 return;
+//             }
 
-            const blog = dbBlogData.get({ plain: true });
-            res.render('edit-blog', { blog, loggedIn: true });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
+//             const blog = dbBlogData.get({ plain: true });
+//             res.render('edit-blog', { blog, loggedIn: true });
+//         })
+//         .catch(err => {
+//             console.log(err);
+//             res.status(500).json(err);
+//         });
+// });
 
 router.get('/new', (req, res) => {
     res.render('new-blog');

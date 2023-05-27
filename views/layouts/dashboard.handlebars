@@ -1,13 +1,34 @@
-{{#if blogs.length}}
-<section>
-    <h2>Your Blogs</h2>
-    {{#each blogs as |blog|}}
-    {{> dashboard-bloginfo blog}}
-    {{/each}}
+<!DOCTYPE html>
+<html lang="en">
 
-</section>
-{{/if}}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech-blog-MVC</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
 
-<button type="submit" class="btn"><a class="link" href="/dashboard/new">New Blog</a></button>
+<body>
 
-<script src="/js/add-blog.js"></script>
+
+    {{#if blogs.length}}
+    <section>
+        <h2>Your Blogs</h2>
+        {{#each blogs as |blog|}}
+        {{> dashboard-bloginfo blog}}
+        {{/each}}
+
+    </section>
+    {{/if}}
+
+    <button type="submit" class="btn"><a class="link" href="/dashboard/new">New Blog</a></button>
+
+    <script src="/js/add-blog.js"></script>
+
+
+    <script src="/js/edit-blog.js"></script>
+    <script src="/js/delete-blog.js"></script>
+
+</body>
+
+</html>

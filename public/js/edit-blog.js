@@ -10,7 +10,7 @@ async function editFormHandler(event) {
         window.location.toString().split('/').length - 1
     ];
 
-    const response = await fetch(`/api/blogs/${id}`, {
+    const response = await fetch(`/dashboard/edit/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
             blog_id: id,

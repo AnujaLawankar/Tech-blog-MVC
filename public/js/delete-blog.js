@@ -5,7 +5,7 @@ async function deleteFormHandler(event) {
         window.location.toString().split('/').length - 1
     ];
 
-    const response = await fetch(`/api/blogs/${id}`, {
+    const response = await fetch(`/dashboard/delete/${id}`, {
         method: 'DELETE',
         body: JSON.stringify({
             blog_id: id
@@ -16,11 +16,11 @@ async function deleteFormHandler(event) {
     });
 
     if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.reload;
     } else {
         alert(response.statusText);
     }
 
 }
 
-document.querySelector('.delete-blog-btn').addEventListener('click', deleteFormHandler);
+document.querySelector('.delete-blog-btn').addEventListener('submit', deleteFormHandler);

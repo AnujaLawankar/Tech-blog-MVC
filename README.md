@@ -9,7 +9,7 @@
 
 3. Developers can also delete and update their blogs or posts if they are login.
 
-4. Developers can also singup if they want to login andthey are not registered. They can first signup and then login themself.
+4. Developers can also sign up if they want to login andthey are not registered. They can first sign up and then login themself.
 
 
 ## Table of Contents

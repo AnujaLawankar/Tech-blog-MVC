@@ -1,19 +1,19 @@
 ## Tech-blog-MVC
 
 
-
 ## Description:-
 
+Tech-blog-MVC is a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. 
 
-## Steps I followed:-
+## Steps followed:-
 
-1. First  created the "New Repository" i.e "Tech-blog-MVC" in GitHub.
+1. First created the "New Repository" i.e "Tech-blog-MVC" in GitHub.
 
 2. In GitBash  navigate to the repository and  to clone "Tech-blog-MVC" repository. Using "cd" command.
 
 3. Then used "git clone <ssh key>" of "Tech-blog-MVC" and clone the repository.
 
-4. Then  created server.js, gitignore, package.json, database file i.e schema.sql, seeds, and README files using touch command.
+4. Then  created Routes, views, javascript, models, server.js, gitignore, package.json, database file i.e schema.sql, seeds, and README files using touch command.
 
 5. Run "code ." command to open VS.
 

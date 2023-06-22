@@ -53,7 +53,7 @@
  
 
 ## URLs:-
-Here, you can find the  "Employee-Tracker" on Heroku:- 
+Here, you can find the "Tech-blog-MVC" on Heroku:- 
 
 https://pacific-brushlands-15738.herokuapp.com/
 
